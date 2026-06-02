@@ -5,7 +5,7 @@ COPY . .
 RUN mvn clean package -DskipTests
 
 # Stage 2: Run stage
-# Humne '21-jre-focal' ki jagah sirf '21-jre' use kiya hai jo zyada stable hai
+# Humne tag badal kar sirf '21-jre' kar diya hai
 FROM eclipse-temurin:21-jre
 WORKDIR /app
 COPY --from=build /app/target/*.jar app.jar
