@@ -1,13 +1,12 @@
-# Stage 1: Build stage
-FROM maven:3.8.5-openjdk-17 AS build
+# Stage 1: Build stage (Java 21 use karenge)
+FROM maven:3.9.6-eclipse-temurin-21 AS build
 WORKDIR /app
 COPY . .
 RUN mvn clean package -DskipTests
 
-# Stage 2: Run stage
-FROM eclipse-temurin:17-jre-focal
+# Stage 2: Run stage (Java 21 runtime)
+FROM eclipse-temurin:21-jre-focal
 WORKDIR /app
-# Ye command folder mein sabse pehli .jar file utha lega
 COPY --from=build /app/target/*.jar app.jar
 EXPOSE 10000
 ENTRYPOINT ["java","-jar","app.jar"]
