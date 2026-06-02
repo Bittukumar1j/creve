@@ -5,7 +5,6 @@ COPY . .
 RUN mvn clean package -DskipTests
 
 # Stage 2: Run stage
-# Humne tag badal kar sirf '21-jre' kar diya hai
 FROM eclipse-temurin:21-jre
 WORKDIR /app
 COPY --from=build /app/target/*.jar app.jar
