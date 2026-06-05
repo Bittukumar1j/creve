@@ -52,4 +52,7 @@ public class ReviewService {
     public List<Review> getReviewsByCompany(Long companyId) {
         return reviewRepository.findByCompanyId(companyId);
     }
+    public List<Review> getAllReviews() {
+        return reviewRepository.findAll();
+    }
 }

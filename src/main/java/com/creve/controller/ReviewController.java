@@ -16,6 +16,10 @@ public class ReviewController {
         reviewService.postReview(review);
         return "Review added successfully!";
     }
+    @GetMapping("/all")
+    public List<Review> getAllReviews() {
+        return reviewService.getAllReviews();
+    }
 
     @GetMapping("/{companyId}")
     public List<Review> getReviews(@PathVariable Long companyId) {
