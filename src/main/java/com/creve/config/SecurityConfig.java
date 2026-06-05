@@ -66,7 +66,7 @@ public class SecurityConfig {
 
                 // 3. Endpoint Security Rules
                 .authorizeHttpRequests(auth -> auth
-                        .requestMatchers("/", "/login/**", "/error", "/api/auth/**").permitAll() // Login/Signup open
+                        .requestMatchers("/", "/login/**", "/error", "/api/auth/**", "/api/reviews/**").permitAll() // Login/Signup open
                         .anyRequest().authenticated() // Baaki sab secure
                 )
 
